@@ -6,7 +6,16 @@ export default class Calculator extends Component {
         super(props);
 
         this.state = {
-            numKeys: this.buildNumKeysArray()
+            numKeys: this.buildNumKeysArray(),
+            otherButtons: [
+                {label: '=', func: this.props.handleEquals},
+                {label: '+', func: this.props.handleAddition},
+                // '-',
+                // 'x',
+                // '/',
+                // '%',
+                // '√'
+            ]
         };
     };
 
@@ -25,7 +34,7 @@ export default class Calculator extends Component {
     };
 
     handleSetValue = (val) => {
-        this.props.handleChangeResult(val);
+        this.props.handleNumericalInput(val.toString());
     };
 
     render() {
